@@ -5,10 +5,12 @@ MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
 ENV NEXUS_VERSION="3.0.1-01" \
     NEXUS_DATA="/nexus-data" \
     JAVA_MIN_MEM="1200M" \
-    JAVA_MAX_MEM="1200M"
+    JAVA_MAX_MEM="1200M" \
+    JKS_PASSWORD="changeit"
 
 RUN set -x \
-    && apk --no-cache add openjdk8-jre-base \
+    && apk --no-cache add \
+        openjdk8-jre-base \
         openssl \
         su-exec \
     && mkdir "/opt" \
@@ -16,7 +18,7 @@ RUN set -x \
     | tar -zxC "/opt" \
     && adduser -S -h ${NEXUS_DATA} nexus
 
-EXPOSE 8081
+EXPOSE 8081 8443
 
 WORKDIR "/opt/nexus-${NEXUS_VERSION}"
 
