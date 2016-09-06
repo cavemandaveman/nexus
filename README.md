@@ -39,6 +39,19 @@ logs, and storage.
   ```
 
 
+### SSL
+
+If you want to run Nexus in SSL, you need to create a Java keystore file with your certificate. See the [Jetty documentation](http://www.eclipse.org/jetty/documentation/current/configuring-ssl.html) for help.
+
+You will need to mount your keystore to the appropriate directory and pass in the keystore password as well.
+
+```
+$ docker run -d -p 8443:8443 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" clearent/nexus
+```
+
+Nexus will now serve its' UI on HTTPS on port 8443 and redirect HTTP requests to HTTPS.
+
+
 ### Persistent Data
 
 There are two general approaches to handling persistent storage requirements
