@@ -21,7 +21,7 @@ new container.  You can tail the log to determine once Nexus is ready:
 $ docker logs -f nexus
 ```
 
-* Installation of Nexus is to `/opt/nexus`.  
+* Installation of Nexus is to `/opt/nexus-3.0.1-01`.  
 
 * A persistent directory, `/nexus-data`, is used for configuration,
 logs, and storage.
@@ -35,7 +35,7 @@ logs, and storage.
   These can be used supplied at runtime to control the JVM:
 
   ```
-  $ docker run -d -p 8081:8081 --name nexus -e JAVA_MAX_MEM=2048m clearent/nexus
+  $ docker run -d -p 8081:8081 --name nexus -e JAVA_MAX_MEM=2048M clearent/nexus
   ```
 
 
