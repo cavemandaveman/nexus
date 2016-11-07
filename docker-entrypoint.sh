@@ -10,7 +10,7 @@ if [ "$1" == 'bin/nexus' ]; then
       -e "s|OBF.*|${JKS_PASSWORD}</Set>|g" \
       -i "/opt/nexus-${NEXUS_VERSION}/etc/jetty-https.xml"
     sed \
-      -e "s|nexus-args=.*|nexus-args=${karaf.etc}/jetty.xml,${karaf.etc}/jetty-http.xml,${karaf.etc}/jetty-requestlog.xml|g"
+      -e "s|nexus-args=.*|nexus-args=${karaf.etc}/jetty.xml,${karaf.etc}/jetty-http.xml,${karaf.etc}/jetty-requestlog.xml|g" \
       -i "/opt/nexus-${NEXUS_VERSION}/etc/org.sonatype.nexus.cfg"
     grep \
       -q "application-port-ssl" "/opt/nexus-${NEXUS_VERSION}/etc/org.sonatype.nexus.cfg" || \
