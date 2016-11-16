@@ -3,9 +3,10 @@ FROM alpine:3.4
 MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
 
 ENV SONATYPE_DIR="/opt/sonatype"
-ENV NEXUS_VERSION="3.0.1-01" \
+ENV NEXUS_VERSION="3.1.0-04" \
     NEXUS_HOME="${SONATYPE_DIR}/nexus" \
     NEXUS_DATA="/nexus-data" \
+    SONATYPE_WORK=${SONATYPE_DIR}/sonatype-work \
     JAVA_MIN_MEM="1200M" \
     JAVA_MAX_MEM="1200M" \
     JKS_PASSWORD="changeit"
