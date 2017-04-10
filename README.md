@@ -51,6 +51,12 @@ $ docker run -d -p 8443:8443 --name nexus -v /path/to/your-keystore.jks:/nexus-d
 
 Nexus will now serve its' UI on HTTPS on port 8443 and redirect HTTP requests to HTTPS.
 
+If you are going to run a Docker registry inside of Nexus, you will need to route to internal port 5000 as well.
+
+```
+$ docker run -d -p 5000:5000 -p 8443:8443 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" clearent/nexus
+```
+
 
 ### Persistent Data
 
