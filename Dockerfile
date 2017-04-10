@@ -22,7 +22,7 @@ RUN set -x \
     && mv "${SONATYPE_DIR}/nexus-${NEXUS_VERSION}" "${NEXUS_HOME}" \
     && adduser -S -h ${NEXUS_DATA} nexus
 
-EXPOSE 8081 8443
+EXPOSE 5000 8081 8443
 
 WORKDIR "${NEXUS_HOME}"
 
