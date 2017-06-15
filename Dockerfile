@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.6
 
 MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
 
@@ -14,7 +14,7 @@ ENV NEXUS_VERSION="3.3.1-01" \
 RUN set -x \
     && apk --no-cache add \
         openjdk8-jre-base \
-        openssl \
+        libressl \
         su-exec \
     && mkdir -p "${SONATYPE_DIR}" \
     && wget -qO - "https://download.sonatype.com/nexus/3/nexus-${NEXUS_VERSION}-unix.tar.gz" \
