@@ -38,6 +38,12 @@ logs, and storage.
     $ docker run -d -p 8081:8081 --name nexus -e JAVA_MAX_MEM=2048M clearent/nexus
     ```
 
+*   As of version 3.4.0, Sonatype [recommends](https://support.sonatype.com/hc/en-us/articles/115006448847#filehandles) increasing the system file descriptor limit. In order to do this in Docker, you need to first make sure that the Docker daemon is configured with a ulimit >= 65536 in the systemd/upstart/daemon.json configuration. You may then include the ulimit on the container run command:
+
+```
+$ docker run -d -p 8081:8081 --ulimit nofile=65536 --name nexus clearent/nexus
+```
+
 
 ### SSL
 
