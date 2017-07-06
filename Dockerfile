@@ -3,7 +3,7 @@ FROM alpine:3.6
 MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
 
 ENV SONATYPE_DIR="/opt/sonatype"
-ENV NEXUS_VERSION="3.3.2-02" \
+ENV NEXUS_VERSION="3.4.0-02" \
     NEXUS_HOME="${SONATYPE_DIR}/nexus" \
     NEXUS_DATA="/nexus-data" \
     SONATYPE_WORK=${SONATYPE_DIR}/sonatype-work \
