@@ -6,7 +6,7 @@ A Dockerfile for Sonatype Nexus Repository Manager 3, based on Alpine.
 To run, binding the exposed port 8081 to the host.
 
 ```
-$ docker run -d -p 8081:8081 --name nexus clearent/nexus
+$ docker run -d -p 8081:8081 --name nexus cavemandaveman/nexus
 ```
 
 
@@ -35,13 +35,13 @@ logs, and storage.
     These can be used supplied at runtime to control the JVM:
 
     ```
-    $ docker run -d -p 8081:8081 --name nexus -e JAVA_MAX_MEM=2048M clearent/nexus
+    $ docker run -d -p 8081:8081 --name nexus -e JAVA_MAX_MEM=2048M cavemandaveman/nexus
     ```
 
 *   As of version 3.4.0, Sonatype [recommends](https://support.sonatype.com/hc/en-us/articles/115006448847#filehandles) increasing the system file descriptor limit. In order to do this in Docker, you need to first make sure that the Docker daemon is configured with a ulimit >= 65536 in the systemd/upstart/daemon.json configuration. You may then include the ulimit on the container run command:
 
 ```
-$ docker run -d -p 8081:8081 --ulimit nofile=65536 --name nexus clearent/nexus
+$ docker run -d -p 8081:8081 --ulimit nofile=65536 --name nexus cavemandaveman/nexus
 ```
 
 
@@ -52,7 +52,7 @@ If you want to run Nexus in SSL, you need to create a Java keystore file with yo
 You will need to mount your keystore to the appropriate directory and pass in the keystore password as well.
 
 ```
-$ docker run -d -p 8443:8443 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" clearent/nexus
+$ docker run -d -p 8443:8443 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" cavemandaveman/nexus
 ```
 
 Nexus will now serve its' UI on HTTPS on port 8443 and redirect HTTP requests to HTTPS.
@@ -60,7 +60,7 @@ Nexus will now serve its' UI on HTTPS on port 8443 and redirect HTTP requests to
 If you are going to run a Docker registry inside of Nexus, you will need to route to internal port 5000 as well.
 
 ```
-$ docker run -d -p 5000:5000 -p 8443:8443 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" clearent/nexus
+$ docker run -d -p 5000:5000 -p 8443:8443 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" cavemandaveman/nexus
 ```
 
 
@@ -75,12 +75,12 @@ for additional information.
     this purpose.  This is the recommended approach.  
 
     ```
-    $ docker run -d --name nexus-data clearent/nexus echo "data-only container for Nexus"
-    $ docker run -d -p 8081:8081 --name nexus --volumes-from nexus-data clearent/nexus
+    $ docker run -d --name nexus-data cavemandaveman/nexus echo "data-only container for Nexus"
+    $ docker run -d -p 8081:8081 --name nexus --volumes-from nexus-data cavemandaveman/nexus
     ```
 
 2.  *Mount a host directory as the volume*.
 
     ```
-    $ docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data clearent/nexus
+    $ docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data cavemandaveman/nexus
     ```

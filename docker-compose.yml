@@ -1,5 +1,5 @@
 nexus:
-  image: clearent/nexus:latest
+  image: cavemandaveman/nexus:latest
   container_name: "nexus"
   ports:
     - "8081:8081"
