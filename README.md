@@ -1,5 +1,6 @@
 # nexus
 
+[![](https://images.microbadger.com/badges/image/clearent/nexus.svg)](https://microbadger.com/images/clearent/nexus "Get your own image badge on microbadger.com")
 
 A Dockerfile for Sonatype Nexus Repository Manager 3, based on Alpine.
 
