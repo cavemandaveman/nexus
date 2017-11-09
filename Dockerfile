@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
+MAINTAINER cavemandaveman <cavemandaveman@protonmail.com>
 
 ENV SONATYPE_DIR="/opt/sonatype"
 ENV NEXUS_VERSION="3.6.0-02" \
