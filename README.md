@@ -85,3 +85,17 @@ for additional information.
     ```
     $ docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data cavemandaveman/nexus
     ```
+
+## Build and publish
+
+Use attached docker compose file:
+
+`docker-compose build`
+
+or
+
+`docker-compose publish`
+
+If you want to play around just hit
+
+`docker-compose up`
