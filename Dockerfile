@@ -15,6 +15,7 @@ RUN set -x \
     && apk --no-cache add \
         openjdk8-jre-base \
         libressl \
+        nss \
         su-exec \
     && mkdir -p "${SONATYPE_DIR}" \
     && wget -qO - "https://download.sonatype.com/nexus/3/nexus-${NEXUS_VERSION}-unix.tar.gz" \
