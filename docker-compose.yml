@@ -3,7 +3,7 @@ version: '3.4'
 services:
   nexus:
     build: .
-    image: lgazo/nexus:3.23.0-03
+    image: lgazo/nexus:3.26.1-02
     container_name: "nexus"
     ports:
       - "8081:8081"
