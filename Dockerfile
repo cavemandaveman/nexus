@@ -3,7 +3,7 @@ FROM alpine:3.6
 LABEL maintainer="cavemandaveman <cavemandaveman@protonmail.com>"
 
 ENV SONATYPE_DIR="/opt/sonatype"
-ENV NEXUS_VERSION="3.12.1-01" \
+ENV NEXUS_VERSION="3.26.1-02" \
     NEXUS_HOME="${SONATYPE_DIR}/nexus" \
     NEXUS_DATA="/nexus-data" \
     SONATYPE_WORK=${SONATYPE_DIR}/sonatype-work \
@@ -15,6 +15,7 @@ RUN set -x \
     && apk --no-cache add \
         openjdk8-jre-base \
         libressl \
+        nss \
         su-exec \
     && mkdir -p "${SONATYPE_DIR}" \
     && wget -qO - "https://download.sonatype.com/nexus/3/nexus-${NEXUS_VERSION}-unix.tar.gz" \
